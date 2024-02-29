@@ -12,4 +12,4 @@ regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
 
-pickle.dump(regressor,open("ml.pkl","wb"))
+pickle.dump(regressor,open("ML/ml.pkl","wb"))

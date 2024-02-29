@@ -12,7 +12,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'ffc7d34aab51af9fcf5eccc2b716383c'
 app.secret_key = 'ffc7d34aab51af9fcf5eccc2b716383c'
 # Load machine learning model for the first application
-model_ml = pickle.load(open("ML/ml.pkl", "rb"))  # Loading a pre-trained ML
+model_ml = pickle.load(open("ML/ml.pkl", "rb"))  # Loading a pre-trained ML.
 
 
 # Load machine learning model for the second application
