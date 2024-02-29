@@ -5,7 +5,6 @@ name = "pypi"
  
 [packages]
 flask = "*"
-scikit-learn = "*"
  
 [requires]
 python_version = "3.9"
