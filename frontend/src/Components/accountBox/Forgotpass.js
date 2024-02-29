@@ -12,7 +12,7 @@ function ForgotPassword() {
     axios.defaults.withCredentials = false;
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3000/forgot-password', {email})
+        axios.post('https://final-ps.vercel.app/forgot-password', {email})
         .then(res => {
             if(res.data.Status === "Success") {
                 navigate('/login')

@@ -13,7 +13,7 @@ function ResetPassword() {
     axios.defaults.withCredentials = false;
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:3000/reset-password/${id}/${token}`, {password})
+        axios.post(`https://final-ps.vercel.app/reset-password/${id}/${token}`, {password})
         .then(res => {
             if(res.data.Status === "Success") {
                 navigate('/login')

@@ -198,7 +198,7 @@ const handleMicrosoftLogin = async (err, data) => {
       <GitHubLogin 
         className="git"
         clientId="a9c2dea3c6f7faa3ddd5"
-        redirectUri='http://localhost:3000/api/exchange-code'
+        redirectUri='https://final-ps.vercel.app/api/exchange-code'
         onSuccess={onSuccess}
         onFailure={onFailure}
       >
