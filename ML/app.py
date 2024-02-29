@@ -12,8 +12,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'ffc7d34aab51af9fcf5eccc2b716383c'
 app.secret_key = 'ffc7d34aab51af9fcf5eccc2b716383c'
 # Load machine learning model for the first application
-model_ml = pickle.load(open("ML/ml.pkl", "rb"))  # Loading a pre-trained ML.
-
+model_aut = pickle.load(open("ML/games.pkl", "rb"))
 
 # Load machine learning model for the second application
 model_dislexia = joblib.load("ML/model_joblib")
@@ -29,7 +28,7 @@ def submit_survey():
     data = request.json
     answers = data.get('answers')
     features = [np.array(answers)]
-    prediction = predicter(features, model_ml)
+    prediction = predicter(features, model_aut)
 
     return jsonify({'prediction': prediction})
 
