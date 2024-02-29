@@ -26,7 +26,7 @@ const SignUpForm = () => {
     }
     else{
 		try {
-			const url = "http://localhost:5000/api/loginusers";
+			const url = "https://final-ps-backend.vercel.app/api/loginusers";
 			await axios.post(url, data);
 			navigate("/Login");
 

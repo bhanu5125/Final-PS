@@ -80,7 +80,7 @@ class WackApp extends Component {
       this.displayMoles();
       if (++x === 16) {
             try {
-              const scr = axios.post('http://localhost:5000/api/activity', {
+              const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
                 email: localStorage.getItem('email'),
                 gameType: "Attention",
                 score: 10,

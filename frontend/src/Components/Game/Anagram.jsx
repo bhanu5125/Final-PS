@@ -61,7 +61,7 @@ function Anagram() {
     if(gameOver)
     {
       try {
-        const scr = axios.post('http://localhost:5000/api/activity', {
+        const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
           email: localStorage.getItem('email'),
           gameType: "Langauge",
           score: score,

@@ -41,7 +41,7 @@ function UpdateUser() {
 
     function updatedata() {
         console.log(fname, lname)
-        fetch("http://localhost:5000/updateUser", {
+        fetch("https://final-ps-backend.vercel.app/updateUser", {
         method: "POST",
         crossDomain: true,
         headers: {

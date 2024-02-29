@@ -171,7 +171,7 @@ const FlashcardGame = () => {
     setGameOver(true);
     setFinalScore(score);
     try {
-      const scr = await axios.post('http://localhost:5000/api/activity', {
+      const scr = await axios.post('https://final-ps-backend.vercel.app/api/activity', {
         email: localStorage.getItem('email'),
         gameType: "Reflex",
         score: score,

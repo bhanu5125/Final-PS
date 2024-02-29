@@ -105,7 +105,7 @@ const Autisam = () => {
       setPrediction(Math.round(response.data.prediction));
       setSubmitted(true);
       try {
-        const scr = await axios.post('http://localhost:5000/api/autisam', {
+        const scr = await axios.post('https://final-ps-backend.vercel.app/api/autisam', {
         name: localStorage.getItem('name'),
         email: localStorage.getItem('email'),
         score: Math.round(response.data.prediction),
