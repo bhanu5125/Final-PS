@@ -16,7 +16,7 @@ model_aut = pickle.load(open("ml.pkl", "rb"))
 
 # Load machine learning model for the second application
 model_dislexia = joblib.load("model_joblib")
-sc = joblib.load("ML/sc_model")
+sc = joblib.load("sc_model")
 
 # Load data for the third application
 games = pickle.load(open("games.pkl", "rb"))
