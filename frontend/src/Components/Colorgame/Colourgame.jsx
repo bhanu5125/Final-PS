@@ -104,7 +104,7 @@ const ColourGame = () => {
 
   const getRecommendations = async () => {
     try {
-      const response = await axios.post('http://127.0.0.1:5001/recommendations', {
+      const response = await axios.post('https://final-ps-ml.vercel.app/recommendations', {
         game_name: "memory",
         level: "medium",
         played: [],

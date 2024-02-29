@@ -150,7 +150,7 @@ function DQuiz() {
     );
 
     try {
-      const response = await axios.post("http://127.0.0.1:5001/quizz", {
+      const response = await axios.post("https://final-ps-ml.vercel.app/quizz", {
         answers: modelValues,
       });
       setSubmitted(true);

@@ -97,7 +97,7 @@ const Autisam = () => {
   ));
 
   try {
-    const response = await axios.post('http://127.0.0.1:5001/apredict', {
+    const response = await axios.post('https://final-ps-ml.vercel.app/apredict', {
       // Assuming the model expects 10 features, create an array with 10 zeros
       answers: modelValues
     });
