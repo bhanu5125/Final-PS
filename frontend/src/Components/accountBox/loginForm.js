@@ -83,7 +83,7 @@ const SignInForm = () => {
 
   const onSuccess = async (response) => {
     try {
-      const exchangeResponse = await fetch('/api/exchange-code', {
+      const exchangeResponse = await fetch('https://final-ps-backend.vercel.app/api/exchange-code', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
