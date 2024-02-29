@@ -12,15 +12,15 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'ffc7d34aab51af9fcf5eccc2b716383c'
 app.secret_key = 'ffc7d34aab51af9fcf5eccc2b716383c'
 # Load machine learning model for the first application
-model_ml = joblib.load('frontend/src/Components/ML_MODEL/Autisam/ml')
+model_ml = joblib.load("frontend/src/Components/ML_MODEL/Autisam/ml")
 
 # Load machine learning model for the second application
 model_dislexia = joblib.load("frontend/src/Components/ML_MODEL/Dyslexia/model_joblib")
 sc = joblib.load("frontend/src/Components/ML_MODEL/Dyslexia/sc_model")
 
 # Load data for the third application
-games = pickle.load(open('frontend/src/Components/ML_MODEL/Recommendations/games.pkl', 'rb'))
-similarity = pickle.load(open('frontend/src/Components/ML_MODEL/Recommendations/similarity.pkl', 'rb'))
+games = pickle.load(open("frontend/src/Components/ML_MODEL/Recommendations/games.pkl", "rb"))
+similarity = pickle.load(open("frontend/src/Components/ML_MODEL/Recommendations/similarity.pkl", "rb"))
 
 # Define routes for the combined application
 @app.route('/apredict', methods=['POST'])
@@ -119,4 +119,4 @@ def recommend(game, level, played):
     return recommendations
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
