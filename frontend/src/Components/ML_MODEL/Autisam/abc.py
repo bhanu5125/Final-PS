@@ -10,6 +10,5 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
-
-
-pickle.dump(regressor,open("ML/ml.pkl","wb"))
+with open("ML/ml.pkl","wb") as fout:
+    pickle.dump(regressor,fout)
