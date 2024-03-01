@@ -12,15 +12,15 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SECRET_KEY'] = 'ffc7d34aab51af9fcf5eccc2b716383c'
 app.secret_key = 'ffc7d34aab51af9fcf5eccc2b716383c'
 # Load machine learning model for the first application
-model_aut = pickle.load(open("ML/ml.pkl", "rb"))
+model_aut = pickle.load(open("ML/model_files/ml.pkl", "rb"))
 
 # Load machine learning model for the second application
-model_dislexia = joblib.load("ML/model_joblib")
-sc = joblib.load("ML/sc_model")
+model_dislexia = joblib.load("ML/model_files/model_joblib")
+sc = joblib.load("ML/model_files/sc_model")
 
 # Load data for the third application
-games = pickle.load(open("ML/games.pkl", "rb"))
-similarity = pickle.load(open("ML/similarity.pkl", "rb"))
+games = pickle.load(open("ML/model_files/games.pkl", "rb"))
+similarity = pickle.load(open("ML/model_files/similarity.pkl", "rb"))
 
 # Define routes for the combined application
 @app.route('/apredict', methods=['POST'])
