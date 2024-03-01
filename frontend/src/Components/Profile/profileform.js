@@ -11,38 +11,46 @@ const UserForm = () => {
 
   const navigate = useNavigate();
 
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState({
+      name: '',
+      fname: '',
+      lname: '',
+      dob: '',
+      email: '',
+      age: '',
+      gender: '',
+      contact: '',
+      education: '',
+      address: '',
+      city: '',
+      state: '',
+      pincode: ''
+  });
 
-  const [validated, setValidated] = useState(false);
-
-  function handleInputChange(e){
-      setUserData({ ...userData, [e.target.name]: e.target.value});
+  const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setUserData({ ...userData, [name]: value });
   };
 
   const handleSubmit = async (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
-    }
-    else{
-      try {
-        await axios.post('https://final-ps-backend.vercel.app/api/users', userData)
-        navigate('/Successpage');
-      } catch (error) {
-        console.error('Error creating user:', error);
+      const form = event.currentTarget;
+      if (form.checkValidity() === false) {
+          return;
       }
-    }
-    setValidated(true);
-
+      try {
+          await axios.post('https://final-ps-backend.vercel.app/api/users', userData);
+          navigate('/Successpage');
+      } catch (error) {
+          console.error('Error creating user:', error);
+      }
   };
-
-  console.log(userData)
 
   return (
     <div>
       <h2 style={{paddingLeft: "10px", fontFamily: "sans-serif"}}>Registration Form</h2>
-    <Form className=' d-flex flex-column gap-2' noValidate validated={validated} onSubmit={handleSubmit}>
+    <Form className=' d-flex flex-column gap-2' noValidate onSubmit={handleSubmit}>
       <Row>
         <Col>
           <Form.Control placeholder="User name" type="text" name="name" onChange={handleInputChange} required/>
