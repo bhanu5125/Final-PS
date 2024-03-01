@@ -15,7 +15,7 @@ class GameOver extends Component {
 
   // Method to fetch recommendations
   getRecommendations() {
-    axios.post('https://final-ps-ml.vercel.app/recommendations', {
+    axios.post('https://final-ps-ml1.onrender.com/recommendations', {
       game_name: "Attention",
       level: "medium",
       played: [],

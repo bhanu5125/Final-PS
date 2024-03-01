@@ -200,7 +200,7 @@ const EmotionFlashcardGame = ({ ageRange, level, levels }) => {
 
   const getRecommendations = async () => {
     try {
-      const response = await axios.post('https://final-ps-ml.vercel.app/recommendations', {
+      const response = await axios.post('https://final-ps-ml1.onrender.com/recommendations', {
         game_name: "reflex",
         level: level,
         played: [],
