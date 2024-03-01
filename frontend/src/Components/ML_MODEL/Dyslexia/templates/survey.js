@@ -147,7 +147,7 @@ function DSurvey() {
       ));
     
       try {
-        const response = await axios.post('https://final-ps-ml.vercel.app/survey', {
+        const response = await axios.post('https://final-ps-ml.streamlit.app/survey', {
           answers: modelValues,
           vals: location.state.vals
         })

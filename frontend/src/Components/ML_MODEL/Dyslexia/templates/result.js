@@ -12,7 +12,7 @@ function DResult() {
     async function handleSubmit()
     {
         try {
-            const response = await axios.post('https://final-ps-ml.vercel.app/dpredict', {
+            const response = await axios.post('https://final-ps-ml.streamlit.app/dpredict', {
               vals: location.state.vals
             })
             setSubmitted(true);

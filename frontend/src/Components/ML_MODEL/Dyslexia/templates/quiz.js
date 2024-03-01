@@ -150,7 +150,7 @@ function DQuiz() {
     );
 
     try {
-      const response = await axios.post("https://final-ps-ml.vercel.app/quizz", {
+      const response = await axios.post("https://final-ps-ml.streamlit.app/quizz", {
         answers: modelValues,
       });
       setSubmitted(true);
