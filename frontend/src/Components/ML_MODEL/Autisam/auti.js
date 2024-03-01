@@ -97,7 +97,7 @@ const Autisam = () => {
   ));
 
   try {
-    const response = await axios.post('https://final-ps-ml.streamlit.app/apredict', {
+    const response = await axios.post('https://final-ps-ml1.onrender.com/apredict', {
       // Assuming the model expects 10 features, create an array with 10 zeros
       answers: modelValues
     });

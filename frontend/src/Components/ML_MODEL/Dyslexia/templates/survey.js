@@ -147,7 +147,7 @@ function DSurvey() {
       ));
     
       try {
-        const response = await axios.post('https://final-ps-ml.streamlit.app/survey', {
+        const response = await axios.post('https://final-ps-ml1.onrender.com/survey', {
           answers: modelValues,
           vals: location.state.vals
         })
