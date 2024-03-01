@@ -27,7 +27,7 @@ const UserForm = () => {
     }
     else{
       try {
-        await axios.post('/api/users', userData)
+        await axios.post('https://final-ps-backend.vercel.app/api/users', userData)
         navigate('/Successpage');
       } catch (error) {
         console.error('Error creating user:', error);
