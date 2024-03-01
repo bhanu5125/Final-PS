@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 import pickle
 import pandas as pd
+from gevent.pywsgi import WSGIServer
 
 app = Flask(__name__, template_folder='templates')
 CORS(app)
@@ -119,4 +120,6 @@ def recommend(game, level, played):
     return recommendations
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
