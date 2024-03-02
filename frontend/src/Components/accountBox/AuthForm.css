@@ -219,11 +219,6 @@
     transform: translateX(800px);
   }
   
-  .git{
-    border: none;
-    padding: 0;
-    background: none;
-  }
   /* ANIMATION */
   
   .container2.sign-up-mode:before {

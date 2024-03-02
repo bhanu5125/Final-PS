@@ -10,7 +10,7 @@ function ResetPassword() {
     const navigate = useNavigate()
     const {id, token} = useParams()
 
-    axios.defaults.withCredentials = false;
+    axios.defaults.withCredentials = true;
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post(`https://final-ps-backend.vercel.app/reset-password/${id}/${token}`, {password})

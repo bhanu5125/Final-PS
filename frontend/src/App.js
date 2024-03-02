@@ -99,7 +99,7 @@ function App() {
             }
           ></Route>
           <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-          <Route path="/reset_password/:id/:token" element={<ResetPassword />}></Route>
+          <Route path='/reset_password/:id/:token' element={<ResetPassword />}></Route>
           <Route
             path="/autism"
             element={ 
