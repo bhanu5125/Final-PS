@@ -131,7 +131,7 @@ app.post('/forgot-password', (req, res) => {
           from: 'kbhanu5125@gmail.com',
           to: email,
           subject: 'Reset Password Link',
-          text: `https://final-ps.vercel.app/reset_password/${user._id}/${token}`
+          text: "https://final-ps.vercel.app/reset_password/" + user._id + "/" + token 
         };
         
         transporter.sendMail(mailOptions, function(error, info){
