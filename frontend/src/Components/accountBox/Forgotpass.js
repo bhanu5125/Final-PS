@@ -14,9 +14,9 @@ function ForgotPassword() {
         e.preventDefault()
         axios.post('https://final-ps-backend.vercel.app/forgot-password', {email})
         .then(res => {
-            if(res.data.Status === "Success") {
-                navigate('/login')
-               
+            if(res.data.Status === "Success")
+            {
+                navigate('/login')    
             }
         }).catch(err => console.log(err))
     }

@@ -124,14 +124,6 @@ function Page() {
           >
             Autism
           </button>
-          <button
-            className="square-button b2"
-        
-            onMouseEnter={() => setShowTextADHD(true)}
-            onMouseLeave={() => setShowTextADHD(false)}
-          >
-            ADHD
-          </button>
         </div>
         <div className="square-button2 b4 text-center  me-3 my-3 d-flex flex-column">
           {motivationalText ? (
@@ -154,14 +146,9 @@ function Page() {
           <img src={sun2} className="rotating-image" alt="Sun"></img>
           {showTextDyslexia && (
             <>
-              <h1>Dyslexia</h1>
-            </>
-          )}
-          {showTextADHD && (
-            <>
               <div className="d-flex flex-column justify-content-center align-items-center ">
                 <div className="">
-                  <h1>ADHD</h1>
+                  <h1>Dyslexia</h1>
                 </div>
 
                 <div className="d-flex flex-row mt-4  ">
@@ -173,9 +160,9 @@ function Page() {
                       paddingInlineEnd: "20px",
                     }}
                   >
-                    Attention Deficit Hyperactivity Disorder (ADHD) is a
-                    neurodevelopmental condition characterized by persistent
-                    patterns of inattention, hyperactivity, and impulsivity.
+                    Dyslexia is a common learning difference affecting reading, writing, and spelling.
+                    Despite normal intelligence, individuals with dyslexia 
+                    struggle with decoding words and comprehending text.
                   </div>
                   {window.innerWidth >= 750 && (
                     <div
@@ -188,8 +175,8 @@ function Page() {
                         paddingInlineEnd: "20px",
                       }}
                     >
-                      Hyperactivity involves excessive fidgeting, restlessness,
-                      and impulsivity, leading to impulsive decision-making.
+                      Dyslexia's roots lie in brain structure differences affecting language processing.
+                      Genetics and early language exposure influence its severity.
                     </div>
                   )}
                   {window.innerWidth >= 620 && (
@@ -201,7 +188,10 @@ function Page() {
                         paddingInlineStart: "20px",
                       }}
                     >
-ADHD impacts various aspects of life, from academic and professional performance to social relationships. It's important to recognize that individuals with ADHD often have unique strengths</div>
+                      Early detection and tailored interventions, like structured literacy 
+                      programs and assistive tech, help individuals with dyslexia succeed academically.
+                      Inclusive environments and accommodations are vital for their full potential.
+                    </div>
                   )}
                 </div>
               </div>

@@ -13,7 +13,7 @@ export default function Gamepage() {
   return (
     <div className="gamepage-container">
       <h1 className="d-flex align-items-center justify-content-center mt-5">
-        Autism
+        Activites
       </h1>
       <div className="row1">
         <div className="boxgamepage">
@@ -34,22 +34,17 @@ export default function Gamepage() {
       </div>
 
       <h1 className="d-flex align-items-center justify-content-center ">
-        Dyslexia
+        
       </h1>
       <div className="row1">
         <div className="boxgamepage">
         <Link to="/PuzzleGame">
           <img className="imgslide" src={slidePuzzleCP}></img>
-         </Link>
+        </Link>
         </div>
         <div className="boxgamepage">
         <Link to="/WackGame">
           <img className="wackamole" src={"https://img.gamedistribution.com/5905642773bc49738888210d0b2d3112-512x512.jpeg"}></img>
-        </Link>
-        </div>
-        <div className="boxgamepage">
-        <Link to="/MemoryGame">
-          <img className="memorygame" src={"https://img.freepik.com/free-vector/hand-drawn-memory-game-card_23-2150138543.jpg?size=626&ext=jpg&ga=GA1.1.1368074558.1705160837&semt=ais"}></img>
         </Link>
         </div>
       </div>
