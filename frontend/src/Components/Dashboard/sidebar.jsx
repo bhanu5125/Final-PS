@@ -25,7 +25,6 @@ function Sidebar() {
         </img></button>
         <button className='  bg-white   border-0' onClick={()=>{navigate('/gamepage')}} ><img className='img2 ' src={ActivityIcon}>
         </img></button>
-        <img className='img2 ' src={SettingIcon}></img>
       </div>
     </div>
   )
