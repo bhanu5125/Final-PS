@@ -9,7 +9,7 @@ const GradioComponent = ({ onClose }) => {
       <div id="gradio-container">
         <iframe
           title="Gradio Chatbot"
-          src="https://huggingface.co/spaces/Guna01/Cognitive-retraining-bot"
+          src="https://f8f949da7314647d66.gradio.live"
           width="100%"
           height="100%"
         ></iframe>
