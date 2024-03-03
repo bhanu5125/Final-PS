@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./curve.css";
+import { useNavigate } from "react-router-dom";
 import oimage from "../assets/o-image.png";
 import image0 from "../assets/0-image.png";
 import grapes from "../assets/grapeimg.png";
@@ -38,6 +39,7 @@ function DQuiz() {
   const [submitted, setSubmitted] = useState(false);
   const [Agesubmitted, setAgeSubmitted] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const navigate = useNavigate();
 
   const handleAgeSubmit = (e) => {
     e.preventDefault();
@@ -82,6 +84,7 @@ function DQuiz() {
         answers: modelValues,
       });
       setSubmitted(true);
+      navigate("/DSurvey", { state: { vals: response.data.scr } });
     } catch (error) {
       console.error("Error submitting quiz:", error);
     }
