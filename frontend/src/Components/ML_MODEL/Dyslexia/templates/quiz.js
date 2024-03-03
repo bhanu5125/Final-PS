@@ -23,14 +23,6 @@ import piano from "../assets/piano.mp3";
 import catastrophe from "../assets/catastrophe.mp3";
 
 
-function ProgressBar({ progress }) {
-  return (
-    <div className="progress-bar">
-      <div className="progress" style={{ width: `${progress}% `}}></div>
-    </div>
-  );
-}
-
 function DQuiz() {
   const [age, setAge] = useState("");
   const [questions, setQuestions] = useState([]);
@@ -381,7 +373,6 @@ function DQuiz() {
     }
     return [];
   };
-
   return (
     <div>
       {!submitted ? (
@@ -402,9 +393,16 @@ function DQuiz() {
             </div>
           ) : null}
           {questions.length > 0 && (
-            <div>
-              <h2>Quiz Questions</h2>
-              <ProgressBar progress={progress} />
+            <div className='servey d-flex align-items-center justify-content-center  z-2 '>
+    
+            <div className='d-flex  mt-5 shadow-lg rounded-5 flex-column w-50  gap-3  pt-5 ps-5  h-100'>
+                <div className='progress-container' >
+                <div
+               className={`progress-bar ${animate ? 'animate' : ''}`}
+               style={{ width: `${progress}%`}}
+                />
+              </div>
+              <h2>Quiz</h2>
               <form onSubmit={handleSubmit}>
                 <div>
                   <p>{questions[currentQuestionIndex].text}</p>
@@ -469,6 +467,7 @@ function DQuiz() {
                   )}
                 </div>
               </form>
+            </div>
             </div>
           )}
         </div>
