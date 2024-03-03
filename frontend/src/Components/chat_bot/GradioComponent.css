@@ -8,7 +8,7 @@
     position: fixed;
 }
 
-iframe {
+.ifr {
     border: 0;
     display: block;
     margin-bottom: 20px;
