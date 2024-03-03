@@ -17,6 +17,7 @@ function DResult() {
             }).then((res)=>{
             setSubmitted(true);
             setresp(response.data)})
+            console.log(response)
         try {
             const scr = await axios.post('https://final-ps-backend.vercel.app/api/dislexia', {
             name: localStorage.getItem('name'),
