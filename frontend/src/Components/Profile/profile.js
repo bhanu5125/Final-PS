@@ -1,45 +1,48 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
+// ProfilePage.js
+
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
+import '../Css/profilepage.css'; // Import your CSS file
+
 const ProfilePage = () => {
   const navigate = useNavigate();
-  const [data, setdata] = useState([])
-
-  const [lemail, setlemail] = useState(localStorage.getItem('email')) 
-  const [name, setname] = useState(localStorage.getItem('name'))
+  const [data, setData] = useState([]);
+  const [lemail, setLemail] = useState(localStorage.getItem('email'));
+  const [name, setName] = useState(localStorage.getItem('name'));
 
   useEffect(() => {
-    setlemail(localStorage.getItem('email'))
-    setname(localStorage.getItem("name"))
-  },[])
+    setLemail(localStorage.getItem('email'));
+    setName(localStorage.getItem('name'));
+  }, []);
 
-  const loginemail = lemail
+  const loginEmail = lemail;
 
-  const Update = async(e) =>
-  {
-    navigate("/profileform")
-  }
- 
+  const handleUpdate = () => {
+    navigate('/profileform');
+  };
+
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`https://final-ps-backend.vercel.app/user-details/${loginemail}`);
-        setdata(response.data);
+        const response = await axios.get(`https://final-ps-backend.vercel.app/user-details/${loginEmail}`);
+        setData(response.data);
       } catch (error) {
         console.error('Error fetching user details:', error);
       }
     };
-    fetchUserDetails();
-  }, [loginemail]);
+    if (loginEmail) {
+      fetchUserDetails();
+    }
+  }, [loginEmail]);
 
-  
   return (
-    <div>
+    <div className="profile-container">
       {data ? (
-        <div className="d-flex flex-column align-content-lg-start justify-content-center p-4">
+        <div className="user-details align-items-lg-start ">
           <h2>User Details</h2>
-          <p>Name: {data.name}</p>
+          <p className=' align-content-md-start'>Name: {data.name}</p>
           <p>Email: {data.email}</p>
           <p>Date of Birth: {data.dob}</p>
           <p>Age: {data.age}</p>
@@ -48,22 +51,23 @@ const ProfilePage = () => {
           <p>Education: {data.education}</p>
           <p>Adress: {data.adress}</p>
           <p>Pincode: {data.pincode}</p>
-          <Button onClick={() => navigate("/updateUser", {state: data})} >Edit</Button>
+          <Button onClick={() => navigate('/updateUser', { state: data })}>Edit</Button>
         </div>
       ) : (
-        name == null && lemail == null?(
-          <div>Login</div>
-        ):(
-        <div>
-        <p>Update your profile</p>
-        <p>Name: {name}</p>
-        <p>Email: {lemail}</p>
-        <button onClick={Update}>Update</button>
+        <div className="login-prompt">
+          {name && lemail ? (
+            <>
+              <p>Update your profile</p>
+              <p>Name: {name}</p>
+              <p>Email: {lemail}</p>
+              <button onClick={handleUpdate}>Update</button>
+            </>
+          ) : (
+            <div>Login</div>
+          )}
         </div>
-        )
       )}
     </div>
-
   );
 };
 

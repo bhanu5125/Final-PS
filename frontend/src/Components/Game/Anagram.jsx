@@ -51,7 +51,7 @@ function Anagram() {
         level: "medium",
         played: [],
       });
-      setRecommendations(response.data);
+      setRecommendations(response.data)
     } catch (error) {
       console.error('Error fetching recommendations:', error);
     }

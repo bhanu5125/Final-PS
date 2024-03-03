@@ -4,23 +4,19 @@ import ProfilePage from "./Components/Profile/profile";
 import SuccessPage from "./Components/Profile/successp";
 import TopNavbar from "./Components/Navbar/Navbar";
 import UpdateUser from "./Components/Profile/updateUser";
-import Footer from "./Components/Footer/Footer";
 import FirstLayout from "./Components/FirstSlide/First";
 import ForgotPassword from "./Components/accountBox/Forgotpass";
 import ResetPassword from "./Components/accountBox/Resetpass";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthForm from "./Components/accountBox/Authform";
 import Sidebar from "./Components/Dashboard/sidebar";
-import Activity from "./Components/activities/activity";
 import GradioButton from './Components/chat_bot/GradioButton';
 import './Components/chat_bot/GradioButton.css';
 import Autisam from "./Components/ML_MODEL/Autisam/auti";
-//import DQuiz from "./Components/dislexia/templets/quiz";
 import DQuiz from "./Components/ML_MODEL/Dyslexia/templates/quiz"
 import DSurvey from "./Components/ML_MODEL/Dyslexia/templates/survey";
 import DResult from "./Components/ML_MODEL/Dyslexia/templates/result";
 import Page from './Components/diseases/page'
-import BubblePopGame from "./Components/Bubblepop/Bubblepop";
 import Anagram from "./Components/Game/Anagram";
 import PuzzleApp from "./Components/PuzzleGame/components/PuzzleApp";
 import DashboardMain from "./Components/Dashboard/dashboard-main";
@@ -29,7 +25,6 @@ import Gamepage from "./Components/GamePages/Gamepage";
 import EmotionGame from "./Components/emotions/Game";
 import Wackapp from "./Components/wack/App"
 import ColourGame from "./Components/Colorgame/Colourgame";
-import MemoryApp from "./Components/MemoryGame/src/MemoryApp";
 
 function App() {
   return (
@@ -123,19 +118,9 @@ function App() {
                 <DResult />
             }
           ></Route>
-          <Route path="/activity"
-          element={
-                <Activity/>
-          }>
-          </Route>.
           <Route path="/selectionpage"
           element={
                 <Page/>
-          }>
-          </Route>
-          <Route path="/BubblepopGame"
-          element={
-                <BubblePopGame/>
           }>
           </Route>
           <Route path="/AnagramGame"
@@ -168,11 +153,6 @@ function App() {
           <Route path="/ColourGame" 
           element={
             <ColourGame/>
-            }>
-          </Route>
-          <Route path="/MemoryGame" 
-          element={
-            <MemoryApp/>
             }>
           </Route>
         </Routes>

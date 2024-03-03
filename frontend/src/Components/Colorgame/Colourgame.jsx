@@ -90,11 +90,11 @@ const ColourGame = () => {
     if(gameOver)
     {
       try {
-        const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
-          email: localStorage.getItem('email'),
-          gameType: "Langauge",
-          score: score,
-        });
+        const scr = axios.post('https://final-ps-ml1.onrender.com/recommendations', {
+          game_name: "reflex",
+          level: "medium",
+          played: [],
+        })
         console.log(scr);
       } catch (error) {
         console.error('Error submitting:', error);
@@ -105,12 +105,12 @@ const ColourGame = () => {
   const getRecommendations = async () => {
     try {
       const response = await axios.post('https://final-ps-ml1.onrender.com/recommendations', {
-        game_name: "memory",
+        game_name: "Memory",
         level: "medium",
         played: [],
       });
-      setRecommendations(response.data);
-    } catch (error) {
+      setRecommendations(response.data)
+    }  catch (error) {
       console.error('Error fetching recommendations:', error);
     }
   };
