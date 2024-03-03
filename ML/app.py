@@ -37,47 +37,62 @@ def predicter(features, model):
     prediction = model.predict(features)
     return prediction[0]
 
-@app.route('/quizz', methods=["POST"])
+@app.route('/quizz', methods=["GET", "POST"])
 def quizz():
-    data = request.json
-    answers = data.get('answers')
-    score = answers
-    final = calculate_score(score)
+    if request.method == "POST":
+        final=[]
+        print("quizz start ->",final)
+        data = request.json
+        answers = data.get('answers')
+        score = answers
+        print(score)
+        Language_vocab = round((score[0]+score[1]+score[2]+score[3]+score[4]+score[5]+score[7])/28,1)
+        Memory = round((score[1]+score[8])/8,1)
+        #Speed = Calculated on the basis of time taken to complete the quiz(for now lets take some value)
+        speed = 0.5
+        Visual_discrimination = round((score[0]+score[2]+score[3]+score[5])/16,1)
+        Audio_Discrimination = round((score[6]+score[9])/8,1)
+        final = [Language_vocab,Memory,speed,Visual_discrimination,Audio_Discrimination]
+        print("after quiz -> ",final)
     return jsonify({'scr': final})
 
-def calculate_score(score):
-    # Your scoring logic here
-    final = [0, 0, 0, 0, 0]  # Dummy data for now
-    return final
-
-@app.route('/survey', methods=["POST"])
+@app.route('/survey', methods=["GET", "POST"])
 def survey():
-    data = request.json
-    answers = data.get('answers')
-    score = answers
-    f2 = data.get('vals')
-    survey_score = round((sum(score)) / 80, 1)
-    f2.append(survey_score)
-    session['pred'] = f2
+    if request.method == "POST":
+        data = request.json
+        answers = data.get('answers')
+        score = answers
+        f2 = data.get('vals')
+        print("Survey start -> ",f2)
+        print(score)
+        survey_score = round((sum(score))/80,1)
+        f2.append(survey_score)
+        print(f2)
+        print("survey score -> ",survey_score)
+        session['pred']=f2
     return jsonify({'scr': f2})
 
-@app.route('/dpredict', methods=["POST"])
+@app.route('/dpredict', methods=["GET", "POST"])
 def predict():
     data = request.json
     score = data.get('vals')
+    print("pred start -> ",score)
     prediction = model_dislexia.predict(sc.transform([score]))
+    print("prediction1 -> ",prediction[0])
     output = int(prediction[0])
-    result = ""
-    if output == 2:
-        prediction = f"Your chance of having dyslexia is LOW....."
+    print("fprediction -> ",output)
+    if output==2:
+        prediction=f"Your chance of having dylexia is LOW....."
         result = "You are Good.."
-    elif output == 1:
-        prediction = f"Your chance of having dyslexia is MODERATE....."
-        result = "If you have any doubt consult a doctor..."
+    elif output==1:
+        prediction=f"Your chance of having dylexia is MODERATE....."
+        result="If you have any doubt consult a doctor..."
     else:
-        prediction = f"Your chance of having dyslexia is HIGH....."
-        result = "Consult a doctor..."
+        prediction=f"Your chance of having dylexia is HIGH....."
+        result="Consult a doctor..."
+    
     return jsonify({'prediction': prediction, 'result': result, 'output': output})
+    
 
 @app.route('/recommendations', methods=['POST'])
 def get_recommendations():
