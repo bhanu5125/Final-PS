@@ -166,6 +166,7 @@ const handleMicrosoftLogin = async (err, data) => {
       <div className="social-media">
         <div className="social-icon">
       <FacebookLogin
+        className="social-icon"
         style={{border:"none", padding:"0", background:"none"}}
         appId="257585390568552"
         onSuccess={(response) => {
@@ -181,27 +182,29 @@ const handleMicrosoftLogin = async (err, data) => {
           navigate("/")
         }}
         >
-          <button className="social-icon" style={{backgroundImage:"url('https://freepngimg.com/thumb/facebook/62487-bluetie-icons-computer-facebook-login-icon-email.png')",backgroundSize:"cover", border:"none", padding:"0", borderRadius:"50%", width:"50px", height:"50px"}}></button>
+          <button style={{backgroundImage:"url('https://freepngimg.com/thumb/facebook/62487-bluetie-icons-computer-facebook-login-icon-email.png')",backgroundSize:"cover", border:"none", padding:"0", borderRadius:"50%", width:"50px", height:"50px"}}></button>
         </FacebookLogin>
         </div>
         <div className="social-icon">
       <MicrosoftLogin
+        className="social-icon"
         style={{border:"none", padding:"0", background:"none"}}
         clientId="1b35cd14-f54b-4c74-871a-429a90886ae4"
         authCallback={handleMicrosoftLogin}
         onError={(error) => console.error('Microsoft Login Failure:', error)}
       >  
-      <button className="social-icon" style={{backgroundImage:"url('https://vectorified.com/images/microsoft-icon-free-36.png')",backgroundSize:"cover", border:"none", padding:"0", borderRadius:"50%", width:"50px", height:"50px"}}></button>
+      <button style={{backgroundImage:"url('https://vectorified.com/images/microsoft-icon-free-36.png')",backgroundSize:"cover", border:"none", padding:"0", borderRadius:"50%", width:"50px", height:"50px"}}></button>
       </MicrosoftLogin>
       </div>
       <div className="social-icon">
       <GitHubLogin 
+        className="social-icon"
         clientId="a9c2dea3c6f7faa3ddd5"
         redirectUri='https://final-ps.vercel.app/api/exchange-code'
         onSuccess={onSuccess}
         onFailure={onFailure}
       >
-      <button className="social-icon" style={{border:"none", padding:"0", background:"none", backgroundImage:"url('https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png')",backgroundSize:"cover", borderRadius:"50%", width:"50px", height:"50px"}}></button>
+      <button style={{border:"none", padding:"0", background:"none", backgroundImage:"url('https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png')",backgroundSize:"cover", borderRadius:"50%", width:"50px", height:"50px"}}></button>
       </GitHubLogin>
       
       </div>
