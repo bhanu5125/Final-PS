@@ -16,7 +16,7 @@ app.secret_key = 'ffc7d34aab51af9fcf5eccc2b716383c'
 model_aut = pickle.load(open("model_files/ml.pkl", "rb"))
 
 # Load machine learning model for the second application
-model_dislexia = joblib.load("model_files/model_joblib")
+model_dislexia = joblib.load("model_files/model_joblib1")
 sc = joblib.load("model_files/sc_model")
 
 # Load data for the third application
