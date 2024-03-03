@@ -150,10 +150,11 @@ function DSurvey() {
         const response = await axios.post('https://final-ps-ml1.onrender.com/survey', {
           answers: modelValues,
           vals: location.state.vals
-        })
+        }).then((res)=>{
         setSubmitted(true);
-        navigate("/DResult", {state:{vals:response.data.scr}})
-        } catch (error) {
+        navigate("/DResult", {state:{vals:res.data.scr}})
+        })
+      }catch (error) {
           console.error('Error submitting survey:', error);
         }
         
