@@ -82,8 +82,9 @@ function DQuiz() {
     try {
       const response = await axios.post("https://final-ps-ml1.onrender.com/quizz", {
         answers: modelValues,
-      }).then((res) => navigate("/DSurvey", { state: { vals: res.data.scr } }));
-      setSubmitted(true);
+      }).then((res) => 
+      navigate("/DSurvey", { state: { vals: res.data.scr } }),
+      setSubmitted(true));
     } catch (error) {
       console.error("Error submitting quiz:", error);
     }

@@ -14,9 +14,9 @@ function DResult() {
         try {
             const response = await axios.post('https://final-ps-ml1.onrender.com/dpredict', {
               vals: location.state.vals
-            })
+            }).then((res)=>{
             setSubmitted(true);
-            setresp(response.data)
+            setresp(response.data)})
         try {
             const scr = await axios.post('https://final-ps-backend.vercel.app/api/dislexia', {
             name: localStorage.getItem('name'),
