@@ -64,7 +64,7 @@ function Anagram() {
         const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
           email: localStorage.getItem('email'),
           gameType: "Langauge",
-          score: score,
+          score: Math.round((score/15) * 10),
         });
         console.log(scr);
       } catch (error) {
@@ -92,6 +92,7 @@ function Anagram() {
       {gameOver ? (
         <div>
           <h1>Game Over!</h1>
+          <h2>Your Score: {Math.round((score/15) * 10)}</h2>
           <Button onClick={restartGame}>Restart</Button>
           <button onClick={getRecommendations}>Get Recommendations</button>
        <ul>

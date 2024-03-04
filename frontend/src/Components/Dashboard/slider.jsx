@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import '../Css/slider.css'; // Create a separate CSS file for styling
 
 const Slider = ({ value }) => {
-  const maxRange = 40;
+  const maxRange = 50;
   const percentage = (value / maxRange) * 100;
 
   const dotStyle = {

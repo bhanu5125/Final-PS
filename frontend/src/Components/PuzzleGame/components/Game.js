@@ -29,16 +29,25 @@ export default function Game({ level, onLevelCompletion }) {
     if (won) {
       setWin(true);
       setTimerActive(false);
-          try {
-            const scr = axios.post('https://final-ps-ml1.onrender.com/recommendations', {
-              game_name: "Problem_solving",
-              level: "medium",
-              played: [],
-            })
-            console.log(scr);
-          } catch (error) {
-            console.error('Error submitting:', error);
-          }
+      try {
+        const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
+          email: localStorage.getItem('email'),
+          gameType: "Problem-Solving",
+          score: gridSize === 2 ? 
+          time < 15 ? 10 : time < 30 ? 8 : time < 60 ? 6 : 4
+          :
+          gridSize === 3 ?
+              time < 120 ? 10 : time < 180 ? 8 : time < 240 ? 6 : 4
+              :
+              gridSize === 4 ?
+                  time < 300 ? 10 : time < 420 ? 8 : time < 600 ? 6 : 4
+                  :
+                  'Invalid level provided',
+        });
+        console.log(scr);
+      } catch (error) {
+        console.error('Error submitting:', error);
+      }
         }
     return;
   }, [moves, shuffledArray, time]);
@@ -77,8 +86,17 @@ export default function Game({ level, onLevelCompletion }) {
   const getRecommendations = async () => {
     try {
       const response = await axios.post('https://final-ps-ml1.onrender.com/recommendations', {
-        game_name: "reflex",
-        level: "medium",
+        game_name: "Problem_solving",
+        level: gridSize === 2 ? 
+        "easy"
+        :
+        gridSize === 3 ?
+            "medium"
+            :
+            gridSize === 4 ?
+                "hard"
+                :
+                'Invalid level provided',
         played: [],
       });
       setRecommendations(response.data);

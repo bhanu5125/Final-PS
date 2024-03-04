@@ -12,12 +12,13 @@ import reasoningIcon from "./assests/reasoning-icon.png";
 import problemSolvingIcon from "./assests/prob-solving-icon.png";
 import reflexIcon from "./assests/reaction-icon.png";
 
-import attenfooter from "./assests/attention-down.png";
+import bad from "./assests/attention-down.png";
 import memfooter from "./assests/memory-down.png";
-import langfooter from "./assests/language-down.png";
+import avg from "./assests/language-down.png";
 import resfooter from "./assests/reasoning-down.png";
 import psfooter from "./assests/ps-down.png";
-import reacfooter from "./assests/reaction-down.png";
+import good from "./assests/reaction-down.png";
+
 
 const categoryNames = ['Attention', 'Memory', 'Language', 'Reasoning', 'Problem-Solving', 'Reflex'];
 
@@ -32,6 +33,9 @@ function DashboardMain() {
     String(" " + date + " ") +
     year;
   const [averages, setAverages] = useState({}); // State to hold averages
+  const [height, setHeight] = useState(0); // Initial height
+  const [weight, setWeight] = useState(0); // Initial weight
+  const [bmi, setBMI] = useState(0);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -76,6 +80,24 @@ function DashboardMain() {
     fetchUserDetails();
   }, []);
 
+  const calculateBMI = () => {
+    const heightInMeters = height / 100; // Convert height to meters
+    const bmiValue = weight / (heightInMeters * heightInMeters);
+    setBMI(bmiValue);
+};
+
+// Function to handle height change
+const handleHeightChange = (newHeight) => {
+    setHeight(newHeight);
+    calculateBMI(); // Recalculate BMI when height changes
+};
+
+// Function to handle weight change
+const handleWeightChange = (newWeight) => {
+    setWeight(newWeight);
+    calculateBMI(); // Recalculate BMI when weight changes
+};
+
   return (
     <div className="d-flex flex-row">
       <div className="back my-3 ms-3">
@@ -93,10 +115,12 @@ function DashboardMain() {
                       {category}
                     </div>
                     <div className="align-items-end ab">
-                      <span>{Math.round(averages[category]) || 0}</span>
+                      <span>{Math.ceil(averages[category]) || 0}</span>
+                      <div>{Math.ceil(averages[category])>=8 ? "Good": (Math.ceil(averages[category])>=5?"Average":"Bad")}</div>
                     </div>
                     <div className="align-items-end ab">
-                      <img className="footer" src={getCategoryfooter(category)} alt={category} />
+                      <img className="footer" src={Math.ceil(averages[category])>=8 ? getCategoryfooter('Good'): ((Math.ceil(averages[category])>=5?getCategoryfooter('Avg'):getCategoryfooter('Bad')))} 
+                      alt={Math.ceil(averages[category])>=8 ? "Good": (Math.ceil(averages[category])>=5?"Average":"Bad")} />
                     </div>
                   </div>
                 ))}
@@ -113,25 +137,28 @@ function DashboardMain() {
               <h6 className="mt-5 ms-4">Height</h6>
               <div className="d-flex flex-column align-items-center">
                 <img src={heightimg} className="imgbar mt-3 mx-2 mb-2" alt="Height" />
-                <h6 className="  me-3">170</h6>
+                <h6 className="me-3">{height}</h6>
+                {/* Input for height */}
+                <input type="range" min="0" max="250" value={height} onChange={(e) => handleHeightChange(e.target.value)} />
               </div>
             </div>
             <div className="weight d-flex m-3 align-content-center justify-content-center">
               <h6 className="mt-5 ms-4">Weight</h6>
               <div className="d-flex flex-column align-items-center">
                 <img src={heightimg} className="imgbar mt-3 mx-2 mb-2" alt="Weight" />
-                <h6 className="  me-3">72</h6>
+                <h6 className="me-3">{weight}</h6>
+                {/* Input for weight */}
+                <input type="range" min="0" max="200" value={weight} onChange={(e) => handleWeightChange(e.target.value)} />
               </div>
             </div>
           </div>
           <div className="bmiback d-flex flex-column align-items-center  my-3 mx-0">
             <h6 className="m-3 bmitext2">Body Mass Index (BMI)</h6>
             <div></div>
-            <Slider value={26} />
+            <Slider value={Math.round(bmi)} />
           </div>
         </div>
         <div className="line mx-3"></div>
-        <h1 className="   justify-content-center mt-3 d-flex">Calendar</h1>
         <div className="d-flex justify-content-center "></div>
       </div>
     </div>
@@ -159,18 +186,12 @@ function getCategoryIcon(category) {
 
 function getCategoryfooter(category) {
   switch (category.toLowerCase()) {
-    case 'attention':
-      return attenfooter;
-    case 'memory':
-      return memfooter;
-    case 'language':
-      return langfooter;
-    case 'reasoning':
-      return resfooter;
-    case 'problem-solving':
-      return psfooter;
-    case 'reflex':
-      return reacfooter;
+    case 'bad':
+      return bad;
+    case 'avg':
+      return avg;
+    case 'good':
+      return good;
     default:
       return null;
   }

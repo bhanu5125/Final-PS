@@ -83,7 +83,7 @@ class WackApp extends Component {
               const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
                 email: localStorage.getItem('email'),
                 gameType: "Attention",
-                score: 10,
+                score: Math.round((this.state.score/30) * 10),
               });
               console.log(scr);
             } catch (error) {

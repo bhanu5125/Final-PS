@@ -1,5 +1,5 @@
 //https://final-ps-ml1.onrender.com
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./curve.css";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +31,17 @@ function DQuiz() {
   const [submitted, setSubmitted] = useState(false);
   const [Agesubmitted, setAgeSubmitted] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const [signup, isSignup] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => { 
+    if (localStorage.getItem("name") !== null ){
+      isSignup(true)
+    }
+    if (localStorage.getItem("name") === ''){
+      isSignup(false)
+    }
+  }, [])
 
   const handleAgeSubmit = (e) => {
     e.preventDefault();
@@ -373,7 +383,21 @@ function DQuiz() {
     }
     return [];
   };
+
+  const handlenav = async () =>
+  {
+    navigate("/Login")
+  }
+
   return (
+
+    <div>
+      {!signup ? (
+        <div>
+          <p>Please Signup to continue</p>
+          <button onClick={handlenav}>Signup</button>
+        </div>
+      ) : (
     <div>
       {!submitted ? (
         <div>
@@ -477,7 +501,10 @@ function DQuiz() {
         </div>
       )}
     </div>
+    )}
+    </div>
   );
+  
 }
 
 export default DQuiz;

@@ -1,39 +1,43 @@
 // AnagramGenerator.js
 
 let threeletterwords = [
-    "cat", "dog", "bat", "rat", "hat", "mat", "pat", "sat", "bet", "get",
-    "jet", "set", "net", "wet", "met", "let", "nut", "hut", "cut", "but",
-    "rut", "pot", "dot", "lot", "cot", "hot", "not", "got", "jot", "tot",
-    "dot", "pop", "hop", "top", "cop", "mop", "hop", "bop", "yam",
-    "jam", "ram", "dam", "ham", "bam", "pam", "gem", "him", "pen", "hen",
-    "den", "ten", "men", "yen", "kin", "tin", "win", "fin", "pin", "bin",
-    "sin", "gin", "kin", "dim", "rim", "him",  "slim", "swim", "grim",
-    "trim", "brim", "whim", "whim", "gum", "sum", "hum", "rum", "bum", "tum",
-    "yum", "hum", "pup", "cup", "sup", "yup", "hup", "dip", "rip", 
-    "lip", "sip", "hip", "zip", "rip", "nip", "pip", "sip", "tip", "lip"
+  "cat", "dog", "bat", "hat", "run", "sun",
+  "mat", "pen", "cup", "top", "box", "car",
+  "bus", "zip", "job", "map", "fan", "leg",
+  "cup", "lip", "rug", "bag", "toy", "cup",
+  "cup", "tap", "nod", "red", "jar", "cap",
+  "mat", "pen", "cup", "top", "box", "car",
+  "bus", "zip", "job", "map", "fan", "leg",
+  "cup", "lip", "rug", "bag", "toy", "cup",
+  "cup", "tap", "nod", "red", "jar", "cap"
 ]
 const fourletterwords = [
-    "card", "dart", "part", "cart", "mate", "date", "late", "rate", "bone", "cone",
-    "done", "tone", "golf", "wolf", "self", "belt", "felt", "melt", "tent", "dent",
-    "rent", "vent", "farm", "barn", "torn", "born", "word", "bird", "lady", "tide",
-    "ride", "hide", "wide", "blue", "clue", "glue", "true", "flip", "slip", "clip",
-    "trip", "jump", "lump", "pump", "bump", "star", "scar", "tart", "mart", "meal",
-    "seal", "deal", "real", "jump", "lump", "pump", "bump", "king", "ring", "sing",
-    "wing", "sand", "band", "hand", "land", "belt", "felt", "melt", "tent", "dent",
-    "rent", "vent", "gift", "lift", "rift", "raft", "bold", "fold", "gold", "told",
-    "hero", "zero", "hero", "zero", "cold", "mold", "fold", "gold", "bark", "dark",
-    "mark", "park", "soap", "goal", "coal", "seal", "deal", "real", "meal", "zeal"
+  "tree", "home", "book", "ball", "desk",
+  "star", "lamp", "milk", "tape", "road",
+  "bird", "rain", "bell", "frog", "gate",
+  "hill", "girl", "hair", "moon", "fish",
+  "coat", "door", "lamp", "bees", "seal",
+  "frog", "bees", "gate", "foot", "leaf",
+  "tree", "home", "book", "ball", "desk",
+  "star", "lamp", "milk", "tape", "road",
+  "bird", "rain", "bell", "frog", "gate",
+  "hill", "girl", "hair", "moon", "fish",
+  "coat", "door", "lamp", "bees", "seal",
+  "frog", "bees", "gate", "foot", "leaf"
 ]
 const fiveletterwords= [
-    "apple", "table", "crane", "plane", "train", "horse", "worse", "store", "piano", "radio",
-    "music", "happy", "jolly", "money", "sunny", "cloud", "dance", "quick", "blend", "blend",
-    "smile", "grass", "green", "beach", "sandy", "peace", "beard", "snake", "block", "clock",
-    "paper", "pencil", "crazy", "dream", "world", "frost", "frown", "globe", "foggy", "lunar",
-    "magic", "ocean", "swirl", "storm", "lunar", "space", "jumps", "lunar", "space", "jumps",
-    "sweep", "sleep", "dream", "greet", "haste", "grace", "flash", "fleet", "greet", "haste",
-    "grace", "flash", "fleet", "sharp", "sheep", "shake", "share", "sharp", "sheep", "shake",
-    "share", "quest", "quack", "quick", "quite", "quest", "quack", "quick", "quite", "music",
-    "noise", "crisp", "clear", "swift", "swarm", "wrist", "write", "crisp", "clear", "swift"
+  "house", "mouse", "apple", "beach", "chair",
+  "snake", "happy", "hello", "cloud", "storm",
+  "beard", "candy", "fancy", "lemon", "piano",
+  "music", "happy", "river", "ferry", "grass",
+  "zebra", "beach", "glass", "water", "bunny",
+  "fairy", "flame", "puppy", "camel", "crown",
+  "house", "mouse", "apple", "beach", "chair",
+  "snake", "happy", "hello", "cloud", "storm",
+  "beard", "candy", "fancy", "lemon", "piano",
+  "music", "happy", "river", "ferry", "grass",
+  "zebra", "beach", "glass", "water", "bunny",
+  "fairy", "flame", "puppy", "camel", "crown"
 ]
 const sixletterwords=[
     "banana", "rocket", "purple", "yellow", "silver", "monkey", "friend", "hidden", "shadow", "spirit",

@@ -90,11 +90,11 @@ const ColourGame = () => {
     if(gameOver)
     {
       try {
-        const scr = axios.post('https://final-ps-ml1.onrender.com/recommendations', {
-          game_name: "reflex",
-          level: "medium",
-          played: [],
-        })
+        const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
+          email: localStorage.getItem('email'),
+          gameType: "Memory",
+          score: Math.round((score/15) * 10),
+        });
         console.log(scr);
       } catch (error) {
         console.error('Error submitting:', error);

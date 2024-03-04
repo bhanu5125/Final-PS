@@ -48,11 +48,11 @@ const EmotionFlashcardGame = ({ ageRange, level, levels }) => {
     {
       console.log(level)
       try {
-          const scr = axios.post('https://final-ps-ml1.onrender.com/recommendations', {
-            game_name: "reflex",
-            level: level,
-            played: [],
-          })
+        const scr = axios.post('https://final-ps-backend.vercel.app/api/activity', {
+          email: localStorage.getItem('email'),
+          gameType: "Reflex",
+          score: Math.round((score/15) * 10),
+        });
         console.log(scr);
       } catch (error) {
         console.error('Error submitting:', error);

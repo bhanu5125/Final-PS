@@ -1,10 +1,12 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Button } from "@material-ui/core";
 //import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.css";
 import logo from "../Navbar/icons8-health-64.png";
 import "../Css/Navbar.css";
+import user_icon from "../Navbar/user-circle.png";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useLocation } from 'react-router-dom'
@@ -59,23 +61,38 @@ function TopNavbar() {
             <Nav.Link href="/" className="Sides">
               Home
             </Nav.Link>
-              <Nav.Link hidden={isHidden} href="/Dashboard" className="Sides2">
-                Dashboard
-              </Nav.Link>
-              <Nav.Link hidden={isHidden} href="/gamepage" className="Sides2">
-                Activities
-              </Nav.Link>
-                {signup ? (
-                  <div hidden={isHidden} className="d-flex gap-1">
-                   {/*<img hidden={isHidden} src={propt.picture} alt="pp" height={"30px"} style={{"borderRadius": "50%"}}></img>*/} 
-                    <h6 hidden={isHidden} style={{"paddingTop": "12px","color": "#1890F0", "fontFamily": "poppins", "fontWeight": "600"}}>{propt}</h6>
-                    <Nav.Link hidden={isHidden} onClick={handleclick}>Logout</Nav.Link>
-                  </div>
-                ) : (
-                  <Nav.Link hidden={isHidden} href="/Login" className="Sides2">
-                  Login
+              {signup ? (
+                <div hidden={isHidden} className="d-flex gap-1">
+                  {/*<img hidden={isHidden} src={propt.picture} alt="pp" height={"30px"} style={{"borderRadius": "50%"}}></img>*/}
+                  <Nav.Link hidden={isHidden} href="/Dashboard" className="Sides2">
+                    Dashboard
                   </Nav.Link>
-                )}
+                  <Nav.Link hidden={isHidden} href="/gamepage" className="Sides2">
+                    Activities
+                  </Nav.Link> 
+                  {/*<h6 hidden={isHidden} style={{"paddingTop": "12px","color": "#1890F0", "fontFamily": "poppins", "fontWeight": "600"}}>{propt}</h6>*/}
+                  <div className="user-icon-container">
+                  <img
+                    src={user_icon}
+                    alt="User"
+                    width="40"
+                    height="40"
+                    className="user-icon"
+                  />
+                  <div className="user-dropdown">
+                    <h6>Welcome back,</h6>
+                    <h5> {propt}</h5>
+                    <Button style={{"backgroundColor":"rgba(62, 139, 239, 0.2)"}} onClick={handleclick}>
+                      Logout
+                    </Button>
+                  </div>
+                </div>
+                </div>
+              ) : (
+                <Nav.Link hidden={isHidden} href="/Login" className="Sides2">
+                Login
+                </Nav.Link>
+              )}
           </Nav>
         </Navbar.Collapse>
       </Container>

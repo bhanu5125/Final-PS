@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import './curve.css'
+import { useNavigate } from 'react-router-dom'
 
 const Autisam = () => {
   const [questions] = useState([
@@ -62,6 +63,17 @@ const Autisam = () => {
   const [Prediction, setPrediction] = useState(null);
   const [submitted, setSubmitted] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const [signup, isSignup] = useState(false);
+  const navigate = useNavigate()
+
+  useEffect(() => { 
+    if (localStorage.getItem("name") !== null ){
+      isSignup(true)
+    }
+    if (localStorage.getItem("name") === ''){
+      isSignup(false)
+    }
+  }, [])
 
   const handleRadioChange = (option) => {
     setAnswers((prevAnswers) => {
@@ -120,62 +132,71 @@ const Autisam = () => {
     
   };
 
-  return (
-    
-<div className='servey d-flex align-items-center justify-content-center  z-2 '>
+  const handlenav = async () =>
+  {
+    navigate("/Login")
+  }
 
-    <div className='d-flex  mt-5 shadow-lg rounded-5 flex-column w-50  gap-3  pt-5 ps-5  h-100'>
-        <div className='progress-container' >
-        <div
-       className={`progress-bar ${animate ? 'animate' : ''}`}
-       style={{ width: `${progress}%`}}
-        />
-      </div>
-
-
-      <h2>Survey Form</h2>
-      {submitted ? (
-        <div>
-          <p>Thank you for submitting the survey!</p>
-          {Prediction !== null && (
-            <p>Your Score: {Prediction}</p>
-          )}
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit}>
-          {questions.length > 0 && (
-            <div className='d-flex flex-column align-items-start justify-content-center h-100'>
-              <p style={{fontFamily: 'Poppins', fontWeight: "600", fontSize: "18px"}} >{questions[currentQuestionIndex].text}</p>
-              {questions[currentQuestionIndex].options.map((option) => (
-                <label key={option} className='d-flex  flex-row gap-1 m-1' style={{fontFamily: 'Poppins', fontSize: "18px"}}>
-                  <input
-                    type="radio"
-                    name={`question_${currentQuestionIndex}`}
-                    value={option}
-                    checked={answers[currentQuestionIndex] === option}
-                    onChange={() => handleRadioChange(option)}
-                  />
-                  {option}
-                </label>
-              ))}
+    return (
+      <div className='servey d-flex align-items-center justify-content-center z-2'>
+        {signup ? (
+          <div className='d-flex mt-5 shadow-lg rounded-5 flex-column w-50 gap-3 pt-5 ps-5 h-100'>
+            <div className='progress-container'>
+              <div
+                className={`progress-bar ${animate ? 'animate' : ''}`}
+                style={{ width: `${progress}%` }}
+              />
             </div>
-          )}
-          <div>
-          <button type="button" onClick={handlePrev} className=' btn' disabled={currentQuestionIndex === 0}>
-            Previous
-          </button>
-          <button type="button" onClick={handleNext} className=' btn' disabled={currentQuestionIndex === questions.length - 1 || answers[currentQuestionIndex] === undefined }>
-            Next
-          </button>
-          {currentQuestionIndex === questions.length - 1 && (
-            <button className='btn  ' disabled={answers[currentQuestionIndex] === undefined } type="submit">Submit</button>
-          )}
+  
+            <h2>Survey Form</h2>
+            {submitted ? (
+              <div>
+                <p>Thank you for submitting the survey!</p>
+                {Prediction !== null && (
+                  <p>Your Score: {Prediction}</p>
+                )}
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {questions.length > 0 && (
+                  <div className='d-flex flex-column align-items-start justify-content-center h-100'>
+                    <p style={{ fontFamily: 'Poppins', fontWeight: "600", fontSize: "18px" }}>{questions[currentQuestionIndex].text}</p>
+                    {questions[currentQuestionIndex].options.map((option) => (
+                      <label key={option} className='d-flex flex-row gap-1 m-1' style={{ fontFamily: 'Poppins', fontSize: "18px" }}>
+                        <input
+                          type="radio"
+                          name={`question_${currentQuestionIndex}`}
+                          value={option}
+                          checked={answers[currentQuestionIndex] === option}
+                          onChange={() => handleRadioChange(option)}
+                        />
+                        {option}
+                      </label>
+                    ))}
+                  </div>
+                )}
+                <div>
+                  <button type="button" onClick={handlePrev} className='btn' disabled={currentQuestionIndex === 0}>
+                    Previous
+                  </button>
+                  <button type="button" onClick={handleNext} className='btn' disabled={currentQuestionIndex === questions.length - 1 || answers[currentQuestionIndex] === undefined}>
+                    Next
+                  </button>
+                  {currentQuestionIndex === questions.length - 1 && (
+                    <button className='btn' disabled={answers[currentQuestionIndex] === undefined} type="submit">Submit</button>
+                  )}
+                </div>
+              </form>
+            )}
           </div>
-        </form>
-      )}
-    </div>
-    </div>
-  );
+        ) : (
+          <div>
+            <p>Please Signup to continue</p>
+            <button onClick={handlenav}>Signup</button>
+          </div>
+        )}
+      </div>
+    );
 };
 
 

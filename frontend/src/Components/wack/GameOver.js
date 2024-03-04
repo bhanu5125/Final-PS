@@ -32,8 +32,7 @@ class GameOver extends Component {
   render() {
     return (
       <div className="game__game-over" style={{ display: this.props.context.state.gameOver }}>
-        <h1 className="game__game-over-header">GAME OVER!</h1>
-        <p className="game__you-scored">You scored { this.props.context.state.score }</p>
+        <div>
         <button onClick={this.getRecommendations}>Get Recommendations</button>
         {this.state.error && (
           <p className="error-message">{this.state.error}</p>
@@ -44,9 +43,13 @@ class GameOver extends Component {
               <li key={index}>{recommendation[0]} : {recommendation[1]}</li>
             ))
           ) : (
-            <li></li>
+            null
           )}
         </ul>
+        </div>
+        <h1 className="game__game-over-header">GAME OVER!</h1>
+        <p className="game__you-scored">You scored { this.props.context.state.score }</p>
+            <br></br>
       </div>
     );
   }
