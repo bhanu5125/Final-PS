@@ -1,10 +1,11 @@
-.title{
-    color: #233348;
+.ntitle{
+    color: #002654;
     font-family: 'Poppins';
-    font-size: 24px;
+    font-size: 28px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    padding-left: 10px;
 }
 .Sides{
     color: rgba(31, 21, 52, 1);

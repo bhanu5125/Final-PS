@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import "bootstrap/dist/css/bootstrap.css";
 import logo from "../Navbar/brain_waves.jpg"
 import logo1 from "../Navbar/bw1.jpg"
+import logo2 from "../Navbar/bw2.jpg"
 import "../Css/Navbar.css";
 import user_icon from "../Navbar/user-circle.png";
 import { useEffect } from "react";
@@ -51,8 +52,8 @@ function TopNavbar() {
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand className="title" href="/">
-          <img src={logo} className="App-logo" alt="logo" /> BRAINWAVES
+        <Navbar.Brand className="ntitle" href="/">
+          <img src={logo2} style={{"height":"70px"}} alt="logo" /> BRAINWAVE
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
