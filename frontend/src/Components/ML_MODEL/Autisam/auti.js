@@ -157,7 +157,7 @@ const Autisam = () => {
                   <p>Your Score: {Prediction}</p>
                   <p>
                     {
-                        {Prediction} > 4 ? "You have chances of autism" : "You are fine"
+                        `${Prediction}` >= `4` ? "You have chances of autism" : "You are fine"
                     }
                   </p>
                   </div>
