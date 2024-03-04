@@ -81,7 +81,7 @@ function TopNavbar() {
                   <div className="user-dropdown">
                     <h6>Welcome back,</h6>
                     <h5> {propt}</h5>
-                    <button style={{"backgroundColor":"rgba(62, 139, 239, 0.2)"}} onClick={handleclick}>
+                    <button style={{"borderRadius":"20px", "height":"45px"}} onClick={handleclick}>
                       Logout
                     </button>
                   </div>
