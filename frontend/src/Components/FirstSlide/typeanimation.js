@@ -4,9 +4,6 @@ const ExampleComponent = () => {
   return (
     <TypeAnimation
       sequence={[
-        // Same substring at the start will only be typed out once, initially
-        'We provide solution for ADHD',
-        1000, // wait 1s before replacing "Mice" with "Hamsters"
         'We provide solution for Dyslexia',
         1000,
         'We provide solution for Autism',
