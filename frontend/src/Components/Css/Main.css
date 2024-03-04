@@ -31,10 +31,7 @@
   box-shadow: 0px 1px 50px 0px rgba(0, 0, 0, 0.08);
 }
 .box {
-  width: 213px;
-  height: 262px;
-  flex-shrink: 0;
-  width: 213px;
+  width: 210px;
   height: 262px;
   flex-shrink: 0;
   border-radius: 12px;
@@ -51,12 +48,13 @@
   box-shadow: 0px 1px px 0px;
 }
 .footer {
-  margin-top: 100px;
+  margin-top: 80px;
+  width: 180px;
 }
 .font3 {
   color: #000;
   font-family: "Poppins";
-  font-size: 13px;
+  font-size: 12px;
   font-style: normal;
   font-weight: 900;
   gap: 100px;

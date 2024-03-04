@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 //import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.css";
-import logo from "../Navbar/icons8-health-64.png";
+import logo from "../Navbar/brain_waves.jpg"
 import "../Css/Navbar.css";
 import user_icon from "../Navbar/user-circle.png";
 import { useEffect } from "react";
@@ -51,7 +51,7 @@ function TopNavbar() {
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand className="title" href="/">
-          <img src={logo} className="App-logo" alt="logo" /> HEALTH CARE
+          <img src={logo} className="App-logo" alt="logo" /> BRAIN WAVES
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
