@@ -1,7 +1,6 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Button } from "@material-ui/core";
 //import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.css";
 import logo from "../Navbar/icons8-health-64.png";
@@ -82,9 +81,9 @@ function TopNavbar() {
                   <div className="user-dropdown">
                     <h6>Welcome back,</h6>
                     <h5> {propt}</h5>
-                    <Button style={{"backgroundColor":"rgba(62, 139, 239, 0.2)"}} onClick={handleclick}>
+                    <button style={{"backgroundColor":"rgba(62, 139, 239, 0.2)"}} onClick={handleclick}>
                       Logout
-                    </Button>
+                    </button>
                   </div>
                 </div>
                 </div>
