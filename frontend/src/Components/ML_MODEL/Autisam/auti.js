@@ -153,7 +153,14 @@ const Autisam = () => {
               <div>
                 <p>Thank you for submitting the survey!</p>
                 {Prediction !== null && (
+                  <div>
                   <p>Your Score: {Prediction}</p>
+                  <p>
+                    {
+                        {Prediction} > 4 ? "You have chances of autism" : "You are fine"
+                    }
+                  </p>
+                  </div>
                 )}
               </div>
             ) : (
