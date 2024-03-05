@@ -10,7 +10,7 @@ const GradioComponent = ({ onClose }) => {
         <iframe
           className='ifr'
           title="Gradio Chatbot"
-          src="https://8d5487171f2a5d97ee.gradio.live/"
+          src="https://a8f4fc2a44d4a7be56.gradio.live/"
         ></iframe>
       </div>
     </Modal>
